@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coursemit-app-front-deployment
+spec:
+  selector:
+   matchLabels:
+    app: coursemit-app-front
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: coursemit-app-front
+    spec:
+      containers:
+        - name: coursemit-app-front
+          image: alexmejiaarias/coursemit-front-jen
+          ports:
+            - containerPort: 81
+              name: coursemitfront
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coursemit-app-front-service
+  labels:
+    app: coursemit-app-front
+spec:
+  selector:
+   app: coursemit-app-front
+  type: NodePort 
+  ports:
+   - port: 81
+     nodePort: 30100
