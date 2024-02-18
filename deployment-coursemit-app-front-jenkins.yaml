@@ -6,7 +6,7 @@ spec:
   selector:
    matchLabels:
     app: coursemit-app-front
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -28,7 +28,7 @@ metadata:
 spec:
   selector:
    app: coursemit-app-front
-  type: NodePort 
+  type: LoadBalancer  
   ports:
    - port: 81
      nodePort: 30100
