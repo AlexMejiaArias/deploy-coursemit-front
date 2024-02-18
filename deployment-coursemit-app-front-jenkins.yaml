@@ -28,7 +28,7 @@ metadata:
 spec:
   selector:
    app: coursemit-app-front
-  type: LoadBalancer  
+  type: NodePort  
   ports:
    - port: 81
      nodePort: 30100
