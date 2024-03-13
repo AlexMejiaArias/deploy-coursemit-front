@@ -27,12 +27,12 @@ pipeline {
    post {
         success {
             script {
-                slackSend(channel: '#canal', color: 'good', message: "El pipeline ha finalizado exitosamente")
+                slackSend(channel: '#jenkins', color: 'good', message: "El pipeline ha finalizado exitosamente")
             }
         }
         failure {
             script {
-                slackSend(channel: '#canal', color: 'danger', message: "El pipeline ha fallado")
+                slackSend(channel: '#jenkins', color: 'danger', message: "El pipeline ha fallado")
             }
         }
     }
